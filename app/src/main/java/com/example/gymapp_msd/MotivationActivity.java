@@ -17,11 +17,6 @@ public class MotivationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motivation);
 
-        // for back button
-        if (getSupportActionBar()!= null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";

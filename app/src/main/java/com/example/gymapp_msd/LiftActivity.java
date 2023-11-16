@@ -1,7 +1,6 @@
 package com.example.gymapp_msd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -10,12 +9,12 @@ import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class CalorieActivity extends AppCompatActivity {
+public class LiftActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calorie);
+        setContentView(R.layout.activity_motivation);
 
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);
@@ -36,4 +35,5 @@ public class CalorieActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

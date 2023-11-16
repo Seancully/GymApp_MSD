@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Button MotivationButton = findViewById(R.id.MotivationButton);
         Button WorkoutButton = findViewById(R.id.WorkoutButton);
         Button CalorieButton = findViewById(R.id.CalorieButton);
+        Button LiftButton = findViewById(R.id.LiftButton);
 
         // set click listeners
         MotivationButton.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CalorieActivity.class));
             }
         });
+
+        LiftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LiftActivity.class));
+            }
+        });
+
 
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);

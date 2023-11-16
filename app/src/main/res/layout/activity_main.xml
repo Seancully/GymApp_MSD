@@ -35,7 +35,7 @@
         android:layout_width="367dp"
         android:layout_height="71dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="375dp"
         android:layout_marginEnd="10dp"
         android:background="#545C5858"
         android:text="Motivational tip"
@@ -72,5 +72,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WorkoutButton" />
+
+    <Button
+        android:id="@+id/LiftButton"
+        android:layout_width="367dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4BFFFFFF"
+        android:text="Lift Tracker"
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WorkoutButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
