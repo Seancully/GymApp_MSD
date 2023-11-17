@@ -35,6 +35,18 @@ public class MainActivity extends AppCompatActivity {
         Button CalorieButton = findViewById(R.id.CalorieButton);
         Button LiftButton = findViewById(R.id.LiftButton);
 
+        // Check for received quote - USING INTENT -
+        Intent intent = getIntent();
+        String selectedQuote = intent.getStringExtra("selectedQuote");
+        TextView quoteTextView = findViewById(R.id.selectedQuoteTextView);
+        if (selectedQuote != null) {
+            if (!selectedQuote.isEmpty()) {
+                quoteTextView.setText(selectedQuote);
+            } else {
+                quoteTextView.setText(""); // Clear the quote if reset signal received
+            }
+        }
+
         // set click listeners
         MotivationButton.setOnClickListener(new View.OnClickListener() {
             @Override
