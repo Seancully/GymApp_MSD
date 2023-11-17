@@ -53,7 +53,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:background="#545C5858"
-        android:text="Workout Tracker"
+        android:text="Lift Tracker"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

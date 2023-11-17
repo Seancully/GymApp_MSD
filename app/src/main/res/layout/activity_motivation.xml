@@ -29,4 +29,176 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1.0" />
 
+    <Button
+        android:id="@+id/quoteButton1"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Believe you can and you're halfway there.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/quoteButton2"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Keep moving forward.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton1" />
+
+    <Button
+        android:id="@+id/quoteButton3"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Stay positive, work hard.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton2" />
+
+    <Button
+        android:id="@+id/quoteButton4"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Dream big, work harder.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton3" />
+
+    <Button
+        android:id="@+id/quoteButton5"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Be stronger than your excuses.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton4" />
+
+    <Button
+        android:id="@+id/quoteButton6"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Progress, not perfection.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton5" />
+
+    <Button
+        android:id="@+id/quoteButton7"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~You can do it!~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton6" />
+
+    <Button
+        android:id="@+id/quoteButton8"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Stay focused and never give up.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton7" />
+
+    <Button
+        android:id="@+id/quoteButton9"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Every day is a fresh start.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton8" />
+
+    <Button
+        android:id="@+id/quoteButton10"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Chase goals, not dreams.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton9" />
+
+    <Button
+        android:id="@+id/quoteButton11"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Small steps, big changes.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton10" />
+
+    <Button
+        android:id="@+id/quoteButton12"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4FFFFFFF"
+        android:text="~Be your own hero.~"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteButton11" />
+
+    <Button
+        android:id="@+id/resetQuotesButton"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:background="#FA0009"
+        android:text="Reset Quotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quoteButton12" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
