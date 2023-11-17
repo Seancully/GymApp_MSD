@@ -3,12 +3,15 @@ package com.example.gymapp_msd;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -30,6 +33,9 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
 
         tvStepCount = findViewById(R.id.tvStepCount);
 
+        Button btnIncrementStep = findViewById(R.id.btnIncrementStep);
+        Button btnResetStep = findViewById(R.id.btnResetStep);
+
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
@@ -47,6 +53,24 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
         } else {
             // Handle the absence of a step counter sensor
         }
+
+        btnIncrementStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stepCount++;
+                tvStepCount.setText("Steps: " + stepCount);
+            }
+        });
+
+        btnResetStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stepCount = 0;
+                initialStepCount = -1; // Resetting the initial step count
+                tvStepCount.setText("Steps: " + stepCount);
+            }
+        });
+
     }
 
     @Override
