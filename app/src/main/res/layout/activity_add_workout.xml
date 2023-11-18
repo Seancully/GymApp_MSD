@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gymbackground"
+    tools:context=".LiftActivity">
+
+    <TextView
+        android:id="@+id/titleHealthHarbor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="HealthHarbor"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Layout for Exercise Input -->
+    <LinearLayout
+        android:id="@+id/exerciseInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/exerciseNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Exercise Name"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <EditText
+            android:id="@+id/weightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Weight (e.g., 50 kg)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <EditText
+            android:id="@+id/setsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Sets"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <EditText
+            android:id="@+id/repsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Reps per Set"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            />
+
+        <!-- Buttons Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingTop="16dp">
+
+            <Button
+                android:id="@+id/addExerciseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#52574B4B"
+                android:text="Add Exercise"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/completeWorkoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="#52574B4B"
+                android:text="Complete Workout"
+                android:textColor="#FF0000" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

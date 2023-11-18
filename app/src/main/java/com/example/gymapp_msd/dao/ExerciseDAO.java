@@ -18,4 +18,6 @@ public interface ExerciseDAO {
 
     @Delete
     void deleteExercise(ExerciseEntity exercise);
+
 }
+
