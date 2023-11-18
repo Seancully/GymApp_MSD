@@ -14,7 +14,7 @@ public interface WorkoutDAO {
     long insertWorkout(WorkoutEntity workout);
 
     @Query("SELECT * FROM WorkoutEntity")
-    LiveData<List<WorkoutEntity>> getAllWorkouts();
+    List<WorkoutEntity> getAllWorkouts();
 
     @Delete
     void deleteWorkout(WorkoutEntity workout);
