@@ -14,7 +14,7 @@ public class LiftActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_motivation);
+        setContentView(R.layout.activity_lift);
 
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);

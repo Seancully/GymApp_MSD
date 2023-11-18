@@ -39,34 +39,39 @@
             android:id="@+id/foodNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter food name" />
+            android:hint="Enter food name"
+            android:textColorHint="#FFFFFF"/>
 
         <EditText
             android:id="@+id/proteinInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="Enter protein (g)" />
+            android:hint="Enter protein (g)"
+            android:textColorHint="#FFFFFF"/>
 
         <EditText
             android:id="@+id/fatInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="Enter fat (g)" />
+            android:hint="Enter fat (g)"
+            android:textColorHint="#FFFFFF"/>
 
         <EditText
             android:id="@+id/carbsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="Enter carbohydrates (g)" />
+            android:hint="Enter carbohydrates (g)"
+            android:textColorHint="#FFFFFF"/>
 
         <Button
             android:id="@+id/addFoodButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Food" />
+            android:text="Add Food"
+            android:textColor="#FFFFFF"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/foodRecyclerView"
@@ -78,6 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total Calories: 0"
+            android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@id/foodRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
