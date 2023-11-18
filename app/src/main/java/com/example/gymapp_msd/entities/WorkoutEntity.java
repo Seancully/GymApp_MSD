@@ -8,6 +8,7 @@ public class WorkoutEntity {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String date; // Format: YYYY-MM-DD
-    // Other fields like workout name, etc.
+    public String name;
+
 }
 

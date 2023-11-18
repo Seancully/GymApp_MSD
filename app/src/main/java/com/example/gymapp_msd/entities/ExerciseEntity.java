@@ -13,5 +13,8 @@ public class ExerciseEntity {
     public int id;
     public int workoutId;
     public String name; // Exercise name
+    public float weight;
+    public int sets;
+    public int reps;
 }
 
