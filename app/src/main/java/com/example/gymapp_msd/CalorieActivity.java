@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -37,34 +38,57 @@ public class CalorieActivity extends AppCompatActivity {
         // RecyclerView setup
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FoodItemAdapter(foodItems, item -> {
-            totalCalories -= item.calories;
+            totalCalories -= item.getCalories(); // Updated to use getter method
             updateTotalCaloriesDisplay();
         });
         foodRecyclerView.setAdapter(adapter);
 
         // Button click listeners
         addFoodButton.setOnClickListener(v -> {
-            try {
-                String foodName = foodNameInput.getText().toString();
-                float protein = Float.parseFloat(proteinInput.getText().toString());
-                float fat = Float.parseFloat(fatInput.getText().toString());
-                float carbs = Float.parseFloat(carbsInput.getText().toString());
+            String foodName = foodNameInput.getText().toString().trim();
+            if (foodName.isEmpty()) {
+                showToast("Please enter a food name.");
+                return;
+            }
 
-                if (foodName.isEmpty()) {
-                    throw new IllegalArgumentException("Food name is required");
-                }
+            try {
+                float protein = parseInput(proteinInput, "protein");
+                float fat = parseInput(fatInput, "fat");
+                float carbs = parseInput(carbsInput, "carbs");
 
                 FoodItem foodItem = new FoodItem(foodName, protein, fat, carbs);
                 foodItems.add(foodItem);
-                totalCalories += foodItem.getCalories(); // Make sure FoodItem has a getCalories method
+                totalCalories += foodItem.getCalories();
                 adapter.notifyDataSetChanged();
                 updateTotalCaloriesDisplay();
-            } catch (NumberFormatException e) {
-                // Handle parsing error
+
+                clearInputs(foodNameInput, proteinInput, fatInput, carbsInput); // Clear input fields
             } catch (IllegalArgumentException e) {
-                // Handle empty input error
+                showToast(e.getMessage());
             }
         });
+    }
+
+    private float parseInput(EditText editText, String nutrientName) {
+        String inputStr = editText.getText().toString().trim();
+        if (inputStr.isEmpty()) {
+            throw new IllegalArgumentException("Please enter the amount of " + nutrientName + ".");
+        }
+        try {
+            return Float.parseFloat(inputStr);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid input for " + nutrientName + ".");
+        }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void clearInputs(EditText... inputs) {
+        for (EditText input : inputs) {
+            input.setText("");
+        }
     }
 
     private void updateTotalCaloriesDisplay() {
