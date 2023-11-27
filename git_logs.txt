@@ -1,0 +1,113 @@
+commit ca4fbc286864146952c3c9b1a744b206b5e64fc4
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 23:38:45 2023 +0000
+
+    some lift tracker aspects implemented (not all)
+
+commit b1045b57df6b848d0296b2f207a7dd858e47df6d
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 22:56:34 2023 +0000
+
+    new activity addworkout added + it's stuff started
+
+commit 92b6e1deffcd09bee0c22b1e2def5d89b68cf578
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 22:33:21 2023 +0000
+
+    Button/UI changes
+
+commit 4d0aac8f64af6aab4f3c4f7f7bd4920187a5fb2c
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 20:49:36 2023 +0000
+
+    started lift UI + finished calories UI - need to continue with lifts stuff
+
+commit 6c3f28351b8e6132296af5fb19dc44701af3c990
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 20:01:02 2023 +0000
+
+    Input validation for calories finished, still need nicer UI + need to continue room database stuff for lifts
+
+commit 0fa6441269c17f682e0014eac2a785176cc3ada7
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Sat Nov 18 19:53:47 2023 +0000
+
+    Room DB stuff started for lifts + still need nicer UI for calories
+
+commit 238f941994e652745ef9c50f2777e28f913f45cd
+Author: Sean <Sean@macbook-air.home>
+Date:   Fri Nov 17 19:40:17 2023 +0000
+
+    calorie tracking done (need: nicer UI colours + user input validation
+
+commit a7df55bdaee9862f4824c701dd7e0002c8cffcab
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Fri Nov 17 14:20:22 2023 +0000
+
+    motivation fully working using INTENT
+
+commit fb60c63d65275d801db79887dda97eeadbd1d19d
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Fri Nov 17 13:50:22 2023 +0000
+
+    motivation buttons and quotes added (no functionality yet)
+
+commit 32448b83ff9eb35e90b4825f0bbaadfccd414fa9
+Author: Sean <Sean@MacBook-Air.fritz.box>
+Date:   Fri Nov 17 12:30:33 2023 +0000
+
+    Steps done with new buttons + testing
+
+commit 5c594d17b10504ae8c7857cc0627226b48ac1b42
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 16:50:13 2023 +0000
+
+    Step counter done but no simulation (yet)
+
+commit 64d547e866fd219f826348a3a23a904edee4a91d
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 15:26:34 2023 +0000
+
+    4th activity (lift) added
+
+commit 3ea3af97b32bec1020200779b97058a1d58ff6c3
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 14:23:41 2023 +0000
+
+    Title on all pages now
+
+commit 3486cfba7dbe9583dfb817581309d9ff9502125b
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 14:14:22 2023 +0000
+
+    title added + opacity buttons to mainActivityxml
+
+commit a32769e56bdf0cfa668b854513c3f7daa02d0b6a
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 13:48:04 2023 +0000
+
+    button colour changes etc
+
+commit 0d5c03a0d8e7699888cf4c98d1cf41af8d619558
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Thu Nov 16 10:02:47 2023 +0000
+
+    activity_main.xml new background
+
+commit 29aa1aff745517c8b00e062347f0d415750e8144
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Wed Nov 15 16:25:57 2023 +0000
+
+    3 new activities + links from main -> each
+
+commit ecac1fa2c1fda97d321185282383a0fb996836a4
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Wed Nov 15 12:28:18 2023 +0000
+
+    compileSDK 33 -> 34 & 3 buttons in place on main activitiy
+
+commit e8ee00e2de315825b87b3cba450cfbe23699949a
+Author: Sean <Sean@MacBook-Air.local>
+Date:   Wed Nov 15 11:58:52 2023 +0000
+
+    Initial message.

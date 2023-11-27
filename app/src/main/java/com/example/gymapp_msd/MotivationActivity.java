@@ -24,7 +24,7 @@ public class MotivationActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
         SpannableString spannableString = new SpannableString(text);
-        spannableString.setSpan(new ForegroundColorSpan(Color.RED), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in red
+        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in orange
         spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
         title.setText(spannableString);
 

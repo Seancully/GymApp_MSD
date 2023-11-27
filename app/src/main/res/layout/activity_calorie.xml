@@ -15,14 +15,16 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
-        android:background="#545C5858"
+        android:background="#75C9924F"
         android:gravity="center"
         android:padding="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textSize="24sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1.0" />
@@ -30,49 +32,51 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#75C9924F"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/titleHealthHarbor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/titleHealthHarbor">
 
         <EditText
             android:id="@+id/foodNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter food name"
-            android:textColorHint="#FFFFFF"/>
+            android:textColorHint="#FFFFFF" />
 
         <EditText
             android:id="@+id/proteinInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
             android:hint="Enter protein (g)"
-            android:textColorHint="#FFFFFF"/>
+            android:inputType="numberDecimal"
+            android:textColorHint="#FFFFFF" />
 
         <EditText
             android:id="@+id/fatInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
             android:hint="Enter fat (g)"
-            android:textColorHint="#FFFFFF"/>
+            android:inputType="numberDecimal"
+            android:textColorHint="#FFFFFF" />
 
         <EditText
             android:id="@+id/carbsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
             android:hint="Enter carbohydrates (g)"
-            android:textColorHint="#FFFFFF"/>
+            android:inputType="numberDecimal"
+            android:textColorHint="#FFFFFF" />
 
         <Button
             android:id="@+id/addFoodButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#52574B4B"
+            android:background="#D2C271CC"
             android:text="Add Food"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFF" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/foodRecyclerView"
@@ -85,9 +89,9 @@
             android:layout_height="wrap_content"
             android:text="Total Calories: 0"
             android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@id/foodRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/foodRecyclerView" />
 
 
     </LinearLayout>

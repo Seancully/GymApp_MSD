@@ -8,33 +8,40 @@
     android:background="@drawable/gymbackground"
     tools:context=".LiftActivity">
 
-    <!-- TextView for Title -->
     <TextView
         android:id="@+id/titleHealthHarbor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="HealthHarbor"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="#75C9924F"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.0" />
 
     <!-- Button for Adding New Workout - This should take us to AddWorkout activity-->
     <Button
         android:id="@+id/addWorkoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#75C9924F"
         android:text="Add Workout"
-        android:textColor="#FF0000"
-        app:layout_constraintTop_toBottomOf="@id/titleHealthHarbor"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#BF54D1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleHealthHarbor" />
 
     <!-- RecyclerView for Displaying Workouts -->
     <androidx.recyclerview.widget.RecyclerView
