@@ -29,6 +29,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1.0" />
 
+    <ImageButton
+        android:id="@+id/backButton2"
+        android:layout_width="52dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:layout_editor_absoluteX="16dp" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -99,4 +109,5 @@
 
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

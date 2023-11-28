@@ -1,11 +1,14 @@
 package com.example.gymapp_msd;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,6 +47,18 @@ public class CalorieActivity extends AppCompatActivity {
         foodRecyclerView.setAdapter(adapter);
 
         // Button click listeners
+
+        // Gesture/callback and intent to go back to previous page
+        ImageButton imageButton = findViewById(R.id.backButton2);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalorieActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         addFoodButton.setOnClickListener(v -> {
             String foodName = foodNameInput.getText().toString().trim();
             if (foodName.isEmpty()) {

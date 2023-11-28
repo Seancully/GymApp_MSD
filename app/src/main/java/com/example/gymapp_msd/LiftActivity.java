@@ -11,6 +11,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +48,17 @@ public class LiftActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(LiftActivity.this, AddWorkout.class);
                 startActivity(intent);
+            }
+        });
+
+        // Gesture/callback and intent to go back to previous page
+        ImageButton imageButton = findViewById(R.id.backButton3);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LiftActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -11,6 +11,8 @@ import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MotivationActivity extends AppCompatActivity {
@@ -28,6 +30,17 @@ public class MotivationActivity extends AppCompatActivity {
         spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
         title.setText(spannableString);
 
+        // Gesture/callback and intent to go back to previous page
+        ImageButton imageButton = findViewById(R.id.backButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MotivationActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         // For the quotes to be selected
         Button quoteButton1 = findViewById(R.id.quoteButton1);
@@ -37,7 +50,7 @@ public class MotivationActivity extends AppCompatActivity {
                 Intent intent = new Intent(MotivationActivity.this, MainActivity.class);
                 intent.putExtra("selectedQuote", "~Believe you can and you're halfway there.~");
                 startActivity(intent);
-                finish(); // Optional: Close this activity
+                finish();
             }
         });
 
