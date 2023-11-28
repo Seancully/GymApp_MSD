@@ -32,7 +32,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#75C9924F"
+        android:background="#D2C271CC"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
             android:id="@+id/foodNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Enter food name"
             android:textColorHint="#FFFFFF" />
 
@@ -49,6 +50,7 @@
             android:id="@+id/proteinInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Enter protein (g)"
             android:inputType="numberDecimal"
             android:textColorHint="#FFFFFF" />
@@ -57,6 +59,7 @@
             android:id="@+id/fatInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Enter fat (g)"
             android:inputType="numberDecimal"
             android:textColorHint="#FFFFFF" />
@@ -65,6 +68,7 @@
             android:id="@+id/carbsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Enter carbohydrates (g)"
             android:inputType="numberDecimal"
             android:textColorHint="#FFFFFF" />

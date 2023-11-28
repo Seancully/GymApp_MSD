@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#61C271CC"
+        android:background="#D2C271CC"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,6 +47,7 @@
             android:id="@+id/exerciseNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Exercise Name"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
@@ -55,6 +56,7 @@
             android:id="@+id/weightInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Weight (e.g., 50 kg)"
             android:inputType="numberDecimal"
             android:textColor="#FFFFFF"
@@ -64,6 +66,7 @@
             android:id="@+id/setsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Sets"
             android:inputType="number"
             android:textColor="#FFFFFF"
@@ -73,6 +76,7 @@
             android:id="@+id/repsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#75C9924F"
             android:hint="Reps per Set"
             android:inputType="number"
             android:textColor="#FFFFFF"
@@ -92,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:background="#75C9924F"
                 android:text="Add Exercise"
-                android:textSize="18sp"
-                android:textColor="#2E2D2D" />
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/completeWorkoutButton"
@@ -102,8 +106,8 @@
                 android:layout_marginStart="16dp"
                 android:background="#75C9924F"
                 android:text="Complete Workout"
-                android:textSize="18sp"
-                android:textColor="#2E2D2D" />
+                android:textColor="#FFFDFD"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
