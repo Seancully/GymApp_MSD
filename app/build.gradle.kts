@@ -41,7 +41,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("androidx.recyclerview:recyclerview:1.2.1") // added this dependency to allow recycler view so I could delete individual items in food list
     implementation("androidx.recyclerview:recyclerview:1.2.1")
-
+    implementation ("com.google.code.gson:gson:2.8.6")
     var room_version = "2.6.0"
 
     implementation ("androidx.room:room-runtime:$room_version")

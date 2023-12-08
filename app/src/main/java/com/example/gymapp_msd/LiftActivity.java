@@ -23,12 +23,17 @@ import java.util.List;
 
 public class LiftActivity extends Activity {
     private WorkoutAdapter workoutAdapter;
+    private RecyclerView workoutRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lift);
 
+        workoutRecyclerView = findViewById(R.id.workoutRecyclerView);
+        workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        workoutAdapter = new WorkoutAdapter();
+        workoutRecyclerView.setAdapter(workoutAdapter);
         setupUI();
         loadWorkouts();
     }
@@ -68,15 +73,32 @@ public class LiftActivity extends Activity {
         workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadWorkouts(); // Refresh workouts when returning to this activity
+    }
+
     private void loadWorkouts() {
-        new FetchWorkoutsTask().execute();
+        new AsyncTask<Void, Void, List<WorkoutEntity>>() {
+            @Override
+            protected List<WorkoutEntity> doInBackground(Void... voids) {
+                AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+                return db.workoutDao().getAll();
+            }
+
+            @Override
+            protected void onPostExecute(List<WorkoutEntity> workoutEntities) {
+                workoutAdapter.setWorkouts(workoutEntities);
+            }
+        }.execute();
     }
 
     private class FetchWorkoutsTask extends AsyncTask<Void, Void, List<WorkoutEntity>> {
         @Override
         protected List<WorkoutEntity> doInBackground(Void... voids) {
             AppDatabase db = AppDatabase.getInstance(getApplicationContext());
-            return db.workoutDao().getAllWorkouts(); // This should return List<WorkoutEntity>
+            return db.workoutDao().getAll();
         }
 
         @Override
