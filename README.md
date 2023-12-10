@@ -1,4 +1,4 @@
-```
+
 # GymApp_MSD
 
 An innovative Android application designed for fitness enthusiasts. GymApp_MSD offers a unique blend of workout tracking, motivational quotes, and step counting, all in one intuitive app.
@@ -47,4 +47,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 © 2023 GymApp_MSD | All Rights Reserved
-```
+
