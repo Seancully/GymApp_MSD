@@ -22,8 +22,10 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+// Activity class to add a new workout
 public class AddWorkout extends AppCompatActivity {
 
+    // UI components
     private EditText exerciseNameInput, weightInput, setsInput, repsInput;
     private Button addExerciseButton, completeWorkoutButton;
     private List<WorkoutEntity.Exercise> exercises = new ArrayList<>();
@@ -33,7 +35,7 @@ public class AddWorkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_workout);
 
-        // Initialize UI components
+        // Initialize UI components from the layout
         exerciseNameInput = findViewById(R.id.exerciseNameInput);
         weightInput = findViewById(R.id.weightInput);
         setsInput = findViewById(R.id.setsInput);
@@ -41,21 +43,22 @@ public class AddWorkout extends AppCompatActivity {
         addExerciseButton = findViewById(R.id.addExerciseButton);
         completeWorkoutButton = findViewById(R.id.completeWorkoutButton);
 
-        // Add Exercise button click listener
+        // Setup listener for adding an exercise
         addExerciseButton.setOnClickListener(v -> addExercise());
 
-        // Complete Workout button click listener
+        // Setup listener to complete and save the workout
         completeWorkoutButton.setOnClickListener(v -> new SaveWorkoutTask().execute());
 
-        // Title with SpannableString for color formatting
+        // Set formatted title text
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
         SpannableString spannableString = new SpannableString(text);
-        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in orange
-        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
+        // Apply color to the title parts
+        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         title.setText(spannableString);
 
-        // Back button logic
+        // Back button setup to return to the previous activity
         ImageButton backButton = findViewById(R.id.backButton5);
         backButton.setOnClickListener(v -> {
             Intent intent = new Intent(AddWorkout.this, LiftActivity.class);
@@ -64,27 +67,35 @@ public class AddWorkout extends AppCompatActivity {
         });
     }
 
+    // Method to add an exercise to the list
     private void addExercise() {
         try {
+            // Extract input data from UI
             String exerciseName = exerciseNameInput.getText().toString();
             String weight = weightInput.getText().toString();
             int sets = Integer.parseInt(setsInput.getText().toString());
             int reps = Integer.parseInt(repsInput.getText().toString());
 
+            // Validate input fields
             if (exerciseName.isEmpty() || weight.isEmpty()) {
                 throw new IllegalArgumentException("All fields are required");
             }
 
+            // Create a new Exercise object and add it to the list
             WorkoutEntity.Exercise exercise = new WorkoutEntity.Exercise(exerciseName, weight, sets, reps);
             exercises.add(exercise);
+            // Clear the input fields for new entries
             clearInputFields();
 
+            // Notify user of successful addition
             Toast.makeText(this, "Exercise added", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
+            // Handle any input errors
             Toast.makeText(this, "Invalid input: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
+    // Method to clear input fields after adding an exercise
     private void clearInputFields() {
         exerciseNameInput.setText("");
         weightInput.setText("");
@@ -92,17 +103,20 @@ public class AddWorkout extends AppCompatActivity {
         repsInput.setText("");
     }
 
+    // AsyncTask to save the current workout
+    // operation that runs on a background thread, separate from the main thread of execution.
     private class SaveWorkoutTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            String workoutName = "Your Workout Name";
+            // Get the database instance
             AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+            // Convert exercises list to JSON
             Gson gson = new Gson();
             String exercisesJson = gson.toJson(exercises);
 
+            // Create a new WorkoutEntity and save it to the database
             WorkoutEntity currentWorkout = new WorkoutEntity();
             currentWorkout.setWorkoutDetails(exercisesJson);
-            currentWorkout.setWorkoutName(currentWorkout.workoutName);
             db.workoutDao().insert(currentWorkout);
 
             return null;
@@ -110,8 +124,9 @@ public class AddWorkout extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            // Notify user of successful save and finish the activity
             Toast.makeText(AddWorkout.this, "Workout saved", Toast.LENGTH_SHORT).show();
-            finish(); // Return to previous activity
+            finish();
         }
     }
 }

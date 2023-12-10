@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -20,7 +19,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-public class WorkoutActivity extends AppCompatActivity implements SensorEventListener{
+// Activity class for tracking workout steps
+public class WorkoutActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor stepCounterSensor;
@@ -33,68 +33,63 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
 
+        // TextView for displaying step count
         tvStepCount = findViewById(R.id.tvStepCount);
 
+        // Initialize buttons for step increment and reset
         Button btnIncrementStep = findViewById(R.id.btnIncrementStep);
         Button btnResetStep = findViewById(R.id.btnResetStep);
 
-        // Setting up the title with SpannableString for color formatting
+        // Setup title with color formatting using SpannableString
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
         SpannableString spannableString = new SpannableString(text);
-        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in orange
-        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
+        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         title.setText(spannableString);
 
-        // Initialize the Sensor Manager and the Step Counter Sensor
+        // Sensor Manager initialization for step counter
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
+        // Register sensor listener if step counter sensor is available
         if (stepCounterSensor != null) {
             sensorManager.registerListener(this, stepCounterSensor, SensorManager.SENSOR_DELAY_UI);
         } else {
-            // Handle the absence of a step counter sensor
+            // Code to handle the scenario where the device doesn't have a step counter sensor
         }
 
-        // Gesture/callback and intent to go back to previous page
-        ImageButton imageButton = findViewById(R.id.backButton4);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WorkoutActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        // Back button to return to the main activity
+        ImageButton backButton = findViewById(R.id.backButton4);
+        backButton.setOnClickListener(v -> {
+            startActivity(new Intent(WorkoutActivity.this, MainActivity.class));
+            finish();
         });
 
-        btnIncrementStep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stepCount++;
-                tvStepCount.setText("Steps: " + stepCount);
-            }
+        // Listener for manual step increment button
+        btnIncrementStep.setOnClickListener(v -> {
+            stepCount++;
+            tvStepCount.setText("Steps: " + stepCount);
         });
 
-        btnResetStep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stepCount = 0;
-                initialStepCount = -1; // Resetting the initial step count
-                tvStepCount.setText("Steps: " + stepCount);
-            }
+        // Listener for step count reset button
+        btnResetStep.setOnClickListener(v -> {
+            stepCount = 0;
+            initialStepCount = -1; // Reset the initial step count
+            tvStepCount.setText("Steps: " + stepCount);
         });
-
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        // Handle step counter changes
         if (event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
             if (initialStepCount < 0) {
-                // Initialize with the first value to effectively reset the step count
+                // Set initial step count on first sensor change
                 initialStepCount = (int) event.values[0];
             }
 
-            // Calculate steps taken since the activity started
+            // Update step count based on sensor data
             stepCount = (int) event.values[0] - initialStepCount;
             tvStepCount.setText("Steps: " + stepCount);
         }
@@ -102,18 +97,20 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+        // Handle changes in sensor accuracy if required
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        // Unregister sensor listener to conserve battery
         sensorManager.unregisterListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        // Re-register sensor listener when activity resumes
         if (stepCounterSensor != null) {
             sensorManager.registerListener(this, stepCounterSensor, SensorManager.SENSOR_DELAY_UI);
         }
@@ -121,7 +118,7 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle back button action
+        // Handle action bar item clicks like the back button
         if (item.getItemId() == android.R.id.home) {
             finish();
             return true;

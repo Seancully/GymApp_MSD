@@ -19,9 +19,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,59 +26,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // initialize buttons
+        // Initialize buttons for different features in the app
         Button MotivationButton = findViewById(R.id.MotivationButton);
         Button WorkoutButton = findViewById(R.id.WorkoutButton);
         Button CalorieButton = findViewById(R.id.CalorieButton);
         Button LiftButton = findViewById(R.id.LiftButton);
 
-        // Check for received quote - USING INTENT -
+        // Check if a motivational quote was passed from another activity
         Intent intent = getIntent();
         String selectedQuote = intent.getStringExtra("selectedQuote");
         TextView quoteTextView = findViewById(R.id.selectedQuoteTextView);
         if (selectedQuote != null) {
-            if (!selectedQuote.isEmpty()) {
-                quoteTextView.setText(selectedQuote);
-            } else {
-                quoteTextView.setText(""); // Clear the quote if reset signal received
-            }
+            // Display the received quote if present
+            quoteTextView.setText(selectedQuote.isEmpty() ? "" : selectedQuote);
         }
 
-        // set click listeners
-        MotivationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MotivationActivity.class));
-            }
-        });
-
-        WorkoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, WorkoutActivity.class));
-            }
-        });
-
-        CalorieButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CalorieActivity.class));
-            }
-        });
-
-        LiftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LiftActivity.class));
-            }
-        });
+        // Set up click listeners for buttons to navigate to respective activities
+        MotivationButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MotivationActivity.class)));
+        WorkoutButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, WorkoutActivity.class)));
+        CalorieButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CalorieActivity.class)));
+        LiftButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LiftActivity.class)));
 
         // Setting up the title with SpannableString for color formatting
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
         SpannableString spannableString = new SpannableString(text);
-        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in orange
-        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
+        // Apply color to the title parts
+        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in magenta
+        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in white
         title.setText(spannableString);
     }
 }

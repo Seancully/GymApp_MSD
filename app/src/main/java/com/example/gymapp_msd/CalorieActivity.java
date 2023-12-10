@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+// Activity class for managing calorie tracking
 public class CalorieActivity extends AppCompatActivity {
 
     private List<FoodItem> foodItems = new ArrayList<>();
@@ -38,27 +39,23 @@ public class CalorieActivity extends AppCompatActivity {
         RecyclerView foodRecyclerView = findViewById(R.id.foodRecyclerView);
         totalCaloriesText = findViewById(R.id.totalCaloriesText);
 
-        // RecyclerView setup
+        // Configure RecyclerView for displaying food items
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FoodItemAdapter(foodItems, item -> {
-            totalCalories -= item.getCalories(); // Updated to use getter method
+            totalCalories -= item.getCalories();
             updateTotalCaloriesDisplay();
         });
         foodRecyclerView.setAdapter(adapter);
 
-        // Button click listeners
-
-        // Gesture/callback and intent to go back to previous page
+        // Set up back button to return to the main activity
         ImageButton imageButton = findViewById(R.id.backButton2);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CalorieActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        imageButton.setOnClickListener(v -> {
+            Intent intent = new Intent(CalorieActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
 
+        // Handle add food button click
         addFoodButton.setOnClickListener(v -> {
             String foodName = foodNameInput.getText().toString().trim();
             if (foodName.isEmpty()) {
@@ -67,23 +64,27 @@ public class CalorieActivity extends AppCompatActivity {
             }
 
             try {
+                // Parse nutrient inputs
                 float protein = parseInput(proteinInput, "protein");
                 float fat = parseInput(fatInput, "fat");
                 float carbs = parseInput(carbsInput, "carbs");
 
+                // Create new food item and update list and UI
                 FoodItem foodItem = new FoodItem(foodName, protein, fat, carbs);
                 foodItems.add(foodItem);
                 totalCalories += foodItem.getCalories();
                 adapter.notifyDataSetChanged();
                 updateTotalCaloriesDisplay();
 
-                clearInputs(foodNameInput, proteinInput, fatInput, carbsInput); // Clear input fields
+                // Clear input fields after addition
+                clearInputs(foodNameInput, proteinInput, fatInput, carbsInput);
             } catch (IllegalArgumentException e) {
                 showToast(e.getMessage());
             }
         });
     }
 
+    // Method to parse float input from EditText
     private float parseInput(EditText editText, String nutrientName) {
         String inputStr = editText.getText().toString().trim();
         if (inputStr.isEmpty()) {
@@ -96,20 +97,24 @@ public class CalorieActivity extends AppCompatActivity {
         }
     }
 
+    // Method to display a toast message
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    // Method to clear multiple EditText inputs
     private void clearInputs(EditText... inputs) {
         for (EditText input : inputs) {
             input.setText("");
         }
     }
 
+    // Method to update the total calories display
     private void updateTotalCaloriesDisplay() {
         totalCaloriesText.setText("Total Calories: " + totalCalories);
     }
 
+    // Handle options item selected in the menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

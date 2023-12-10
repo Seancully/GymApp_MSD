@@ -21,6 +21,7 @@ import com.example.gymapp_msd.entities.WorkoutEntity;
 
 import java.util.List;
 
+// Activity class for displaying and managing workouts
 public class LiftActivity extends Activity {
     private WorkoutAdapter workoutAdapter;
     private RecyclerView workoutRecyclerView;
@@ -30,55 +31,51 @@ public class LiftActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lift);
 
+        // Setup for the RecyclerView to display workouts
         workoutRecyclerView = findViewById(R.id.workoutRecyclerView);
         workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         workoutAdapter = new WorkoutAdapter();
         workoutRecyclerView.setAdapter(workoutAdapter);
+
+        // Initialize UI components and load workouts from database
         setupUI();
         loadWorkouts();
     }
 
     private void setupUI() {
-        // Setting up the title with SpannableString for color formatting
+        // Setting up the colored title using SpannableString
         TextView title = findViewById(R.id.titleHealthHarbor);
         String text = "HealthHarbor";
         SpannableString spannableString = new SpannableString(text);
-        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Health" in orange
-        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // "Harbor" in black
+        spannableString.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 6, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         title.setText(spannableString);
 
+        // Button to add a new workout
         Button addWorkoutButton = findViewById(R.id.addWorkoutButton);
-        addWorkoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LiftActivity.this, AddWorkout.class);
-                startActivity(intent);
-            }
+        addWorkoutButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LiftActivity.this, AddWorkout.class);
+            startActivity(intent);
         });
 
-        // Gesture/callback and intent to go back to previous page
+        // Back button to return to the main activity
         ImageButton imageButton = findViewById(R.id.backButton3);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LiftActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        imageButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LiftActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
-
-        RecyclerView workoutRecyclerView = findViewById(R.id.workoutRecyclerView);
-        workoutAdapter = new WorkoutAdapter();
-        workoutRecyclerView.setAdapter(workoutAdapter);
-        workoutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        loadWorkouts(); // Refresh workouts when returning to this activity
+        // Reload workouts when the activity is resumed
+        loadWorkouts();
     }
 
+    // Asynchronous task to load workouts from the database
+    // operation that runs on a background thread, separate from the main thread of execution.
     private void loadWorkouts() {
         new AsyncTask<Void, Void, List<WorkoutEntity>>() {
             @Override
@@ -94,21 +91,7 @@ public class LiftActivity extends Activity {
         }.execute();
     }
 
-    private class FetchWorkoutsTask extends AsyncTask<Void, Void, List<WorkoutEntity>> {
-        @Override
-        protected List<WorkoutEntity> doInBackground(Void... voids) {
-            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
-            return db.workoutDao().getAll();
-        }
-
-        @Override
-        protected void onPostExecute(List<WorkoutEntity> workouts) {
-            workoutAdapter.setWorkouts(workouts);
-            workoutAdapter.notifyDataSetChanged();
-        }
-    }
-
-
+    // Handles menu item selection (like back button in the toolbar)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

@@ -12,7 +12,6 @@ import java.util.List;
 public class WorkoutEntity {
     @PrimaryKey(autoGenerate = true)
     public int id;
-    public String workoutName;
     @ColumnInfo(name = "workout_details")
     private String workoutDetails;
 
@@ -21,7 +20,6 @@ public class WorkoutEntity {
 
     // Constructor with workout details and name
     public WorkoutEntity(String workoutName, String workoutDetails) {
-        this.workoutName = workoutName;
         this.workoutDetails = workoutDetails;
     }
 
@@ -40,14 +38,6 @@ public class WorkoutEntity {
 
     public void setWorkoutDetails(String workoutDetails) {
         this.workoutDetails = workoutDetails;
-    }
-
-    public String getWorkoutName() {
-        return workoutName;
-    }
-
-    public void setWorkoutName(String workoutName) {
-        this.workoutName = workoutName;
     }
 
     // Inner class representing an Exercise
