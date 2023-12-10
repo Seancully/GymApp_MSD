@@ -95,10 +95,13 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutV
 
         // Bind workout details to the view
         void bind(WorkoutEntity workout) {
+            // Reference: The following code is aided by https://abhiandroid.com/programming/json#gsc.tab=0
             // Parse JSON string to get exercise details
             Type exerciseListType = new TypeToken<List<WorkoutEntity.Exercise>>(){}.getType();
             List<WorkoutEntity.Exercise> exercises = gson.fromJson(workout.getWorkoutDetails(), exerciseListType);
+            // Reference complete
 
+            // Reference: The following code is aided by https://developer.android.com/reference/java/lang/StringBuilder
             // Format details into a readable string
             StringBuilder detailsBuilder = new StringBuilder();
             if (exercises != null) {
@@ -110,6 +113,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutV
                             .append("kg\n");
                 }
             }
+            // Reference complete
             workoutDetailsTextView.setText(detailsBuilder.toString().trim());
         }
     }

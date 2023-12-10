@@ -41,8 +41,17 @@ public class MotivationActivity extends AppCompatActivity {
         // Each button sends a different quote back to MainActivity
         setupQuoteButton(R.id.quoteButton1, "~Believe you can and you're halfway there.~");
         setupQuoteButton(R.id.quoteButton2, "~Keep moving forward.~");
-        // ... (Repeat for other quote buttons)
+        setupQuoteButton(R.id.quoteButton3, "~Stay positive, work hard.~");
+        setupQuoteButton(R.id.quoteButton4, "~Dream big, work harder.~");
+        setupQuoteButton(R.id.quoteButton5, "~Be stronger than your excuses.~");
+        setupQuoteButton(R.id.quoteButton6, "~Progress, not perfection.~");
+        setupQuoteButton(R.id.quoteButton7, "~You can do it!~");
+        setupQuoteButton(R.id.quoteButton8, "~Stay focused and never give up.~");
+        setupQuoteButton(R.id.quoteButton9, "~Every day is a fresh start.~");
+        setupQuoteButton(R.id.quoteButton10, "~Chase goals, not dreams.~");
+        setupQuoteButton(R.id.quoteButton11, "~Small steps, big changes.~");
         setupQuoteButton(R.id.quoteButton12, "~Be your own hero.~");
+
 
         // Reset button to clear the selected quote
         Button resetButton = findViewById(R.id.resetQuotesButton);
