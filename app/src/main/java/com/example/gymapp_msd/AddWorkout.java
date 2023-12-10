@@ -95,12 +95,14 @@ public class AddWorkout extends AppCompatActivity {
     private class SaveWorkoutTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
+            String workoutName = "Your Workout Name";
             AppDatabase db = AppDatabase.getInstance(getApplicationContext());
             Gson gson = new Gson();
             String exercisesJson = gson.toJson(exercises);
 
             WorkoutEntity currentWorkout = new WorkoutEntity();
             currentWorkout.setWorkoutDetails(exercisesJson);
+            currentWorkout.setWorkoutName(currentWorkout.workoutName);
             db.workoutDao().insert(currentWorkout);
 
             return null;

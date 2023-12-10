@@ -1,6 +1,7 @@
 package com.example.gymapp_msd.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -16,5 +17,7 @@ public interface WorkoutDAO {
     @Query("SELECT * FROM WorkoutEntity")
     List<WorkoutEntity> getAll();
 
+    @Delete
+    void delete(WorkoutEntity workout);
 }
 
