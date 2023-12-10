@@ -71,10 +71,12 @@ public class AddWorkout extends AppCompatActivity {
     private void addExercise() {
         try {
             // Extract input data from UI
+            // Reference: The following code is aided by https://developer.android.com/develop/connectivity/network-ops/xml
             String exerciseName = exerciseNameInput.getText().toString();
             String weight = weightInput.getText().toString();
             int sets = Integer.parseInt(setsInput.getText().toString());
             int reps = Integer.parseInt(repsInput.getText().toString());
+            // Reference complete
 
             // Validate input fields
             if (exerciseName.isEmpty() || weight.isEmpty()) {
@@ -105,6 +107,7 @@ public class AddWorkout extends AppCompatActivity {
 
     // AsyncTask to save the current workout
     // operation that runs on a background thread, separate from the main thread of execution.
+    // Reference: The following code is aided by https://developer.android.com/reference/android/os/AsyncTask
     private class SaveWorkoutTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
@@ -129,4 +132,5 @@ public class AddWorkout extends AppCompatActivity {
             finish();
         }
     }
+    // Reference complete
 }

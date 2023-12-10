@@ -25,7 +25,7 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.ViewHo
         this.deleteListener = listener;
     }
 
-    // Creates new views (invoked by the layout manager)
+    // Creates new views
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_item, parent, false);

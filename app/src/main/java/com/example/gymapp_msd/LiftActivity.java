@@ -54,16 +54,20 @@ public class LiftActivity extends Activity {
         // Button to add a new workout
         Button addWorkoutButton = findViewById(R.id.addWorkoutButton);
         addWorkoutButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview
             Intent intent = new Intent(LiftActivity.this, AddWorkout.class);
             startActivity(intent);
+            // Reference complete
         });
 
         // Back button to return to the main activity
         ImageButton imageButton = findViewById(R.id.backButton3);
         imageButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/reference/android/content/Intent
             Intent intent = new Intent(LiftActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
+            // reference complete
         });
     }
 
@@ -77,6 +81,7 @@ public class LiftActivity extends Activity {
     // Asynchronous task to load workouts from the database
     // operation that runs on a background thread, separate from the main thread of execution.
     private void loadWorkouts() {
+        // Reference: The following code is aided by https://developer.android.com/reference/android/os/AsyncTask
         new AsyncTask<Void, Void, List<WorkoutEntity>>() {
             @Override
             protected List<WorkoutEntity> doInBackground(Void... voids) {
@@ -89,6 +94,7 @@ public class LiftActivity extends Activity {
                 workoutAdapter.setWorkouts(workoutEntities);
             }
         }.execute();
+        // Reference complete
     }
 
     // Handles menu item selection (like back button in the toolbar)

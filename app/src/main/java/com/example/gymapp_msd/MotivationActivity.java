@@ -33,8 +33,10 @@ public class MotivationActivity extends AppCompatActivity {
         // Back button to return to the main activity
         ImageButton backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/reference/android/content/Intent
             startActivity(new Intent(MotivationActivity.this, MainActivity.class));
             finish();
+            // reference complete
         });
 
         // Setup buttons for selecting motivational quotes
@@ -56,10 +58,12 @@ public class MotivationActivity extends AppCompatActivity {
         // Reset button to clear the selected quote
         Button resetButton = findViewById(R.id.resetQuotesButton);
         resetButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/reference/android/content/Intent
             Intent intent = new Intent(MotivationActivity.this, MainActivity.class);
             intent.putExtra("selectedQuote", "");
             startActivity(intent);
             finish();
+            // Reference complete
         });
     }
 
@@ -67,10 +71,12 @@ public class MotivationActivity extends AppCompatActivity {
     private void setupQuoteButton(int buttonId, String quote) {
         Button quoteButton = findViewById(buttonId);
         quoteButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/reference/android/content/Intent
             Intent intent = new Intent(MotivationActivity.this, MainActivity.class);
             intent.putExtra("selectedQuote", quote);
             startActivity(intent);
             finish();
+            // Reference complete
         });
     }
 

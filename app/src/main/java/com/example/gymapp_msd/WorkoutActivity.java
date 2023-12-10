@@ -49,8 +49,10 @@ public class WorkoutActivity extends AppCompatActivity implements SensorEventLis
         title.setText(spannableString);
 
         // Sensor Manager initialization for step counter
+        // Reference: The following code is aided by https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        // Reference complete
 
         // Register sensor listener if step counter sensor is available
         if (stepCounterSensor != null) {

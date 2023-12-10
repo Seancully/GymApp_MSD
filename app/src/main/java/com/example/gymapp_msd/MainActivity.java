@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         Button LiftButton = findViewById(R.id.LiftButton);
 
         // Check if a motivational quote was passed from another activity
+        // Reference: The following code is aided by https://developer.android.com/reference/android/content/Intent
         Intent intent = getIntent();
         String selectedQuote = intent.getStringExtra("selectedQuote");
+        // Reference complete
         TextView quoteTextView = findViewById(R.id.selectedQuoteTextView);
         if (selectedQuote != null) {
             // Display the received quote if present

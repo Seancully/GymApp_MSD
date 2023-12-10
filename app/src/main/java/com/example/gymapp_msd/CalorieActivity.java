@@ -40,12 +40,14 @@ public class CalorieActivity extends AppCompatActivity {
         totalCaloriesText = findViewById(R.id.totalCaloriesText);
 
         // Configure RecyclerView for displaying food items
+        // Reference: The following code is aided by https://guides.codepath.com/android/using-the-recyclerview
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FoodItemAdapter(foodItems, item -> {
             totalCalories -= item.getCalories();
             updateTotalCaloriesDisplay();
         });
         foodRecyclerView.setAdapter(adapter);
+        // Reference complete
 
         // Set up back button to return to the main activity
         ImageButton imageButton = findViewById(R.id.backButton2);
@@ -57,7 +59,9 @@ public class CalorieActivity extends AppCompatActivity {
 
         // Handle add food button click
         addFoodButton.setOnClickListener(v -> {
+            // Reference: The following code is aided by https://developer.android.com/develop/connectivity/network-ops/xml
             String foodName = foodNameInput.getText().toString().trim();
+            // Reference complete
             if (foodName.isEmpty()) {
                 showToast("Please enter a food name.");
                 return;
@@ -65,9 +69,11 @@ public class CalorieActivity extends AppCompatActivity {
 
             try {
                 // Parse nutrient inputs
+                // Reference: The following code is aided by https://developer.android.com/develop/connectivity/network-ops/xml
                 float protein = parseInput(proteinInput, "protein");
                 float fat = parseInput(fatInput, "fat");
                 float carbs = parseInput(carbsInput, "carbs");
+                // Reference complete
 
                 // Create new food item and update list and UI
                 FoodItem foodItem = new FoodItem(foodName, protein, fat, carbs);
@@ -85,8 +91,10 @@ public class CalorieActivity extends AppCompatActivity {
     }
 
     // Method to parse float input from EditText
+    // Reference: The following code is aided by https://developer.android.com/develop/connectivity/network-ops/xml
     private float parseInput(EditText editText, String nutrientName) {
         String inputStr = editText.getText().toString().trim();
+    // Reference complete
         if (inputStr.isEmpty()) {
             throw new IllegalArgumentException("Please enter the amount of " + nutrientName + ".");
         }
